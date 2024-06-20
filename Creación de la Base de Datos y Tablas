@@ -1,0 +1,43 @@
+CREATE DATABASE Empresa;
+GO
+
+-- Usamos la base de datos Empresa
+USE Empresa;
+GO
+
+-- Creación de la tabla Departamentos
+CREATE TABLE Departamentos (
+    DepartamentoID INT PRIMARY KEY,
+    Nombre VARCHAR(100)
+);
+GO
+
+-- Inserción de datos en la tabla Departamentos
+INSERT INTO Departamentos (DepartamentoID, Nombre)
+VALUES 
+    (1, 'Ventas'),
+    (2, 'Desarrollo'),
+    (3, 'Recursos Humanos');
+GO
+
+-- Creación de la tabla Empleados
+CREATE TABLE Empleados (
+    EmpleadoID INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Apellido VARCHAR(100),
+    FechaNacimiento DATE,
+    DepartamentoID INT,
+    FOREIGN KEY (DepartamentoID) REFERENCES Departamentos(DepartamentoID)
+);
+GO
+
+-- Inserción de datos en la tabla Empleados
+INSERT INTO Empleados (EmpleadoID, Nombre, Apellido, FechaNacimiento, DepartamentoID)
+VALUES
+    (1, 'Juan', 'Pérez', '1990-05-15', 1),
+    (2, 'María', 'López', '1985-02-10', 1),
+    (3, 'Carlos', 'González', '1992-11-30', 2),
+    (4, 'Ana', 'Martínez', '1988-07-22', 2),
+    (5, 'Pedro', 'Díaz', '1995-04-05', 3),
+    (6, 'Laura', 'Ruiz', '1993-08-18', 3);
+GO
