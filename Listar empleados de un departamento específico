@@ -1,0 +1,6 @@
+SELECT 
+    E.EmpleadoID,
+    E.Nombre,
+    E.Apellido,
+    E.FechaNacimiento
+FROM dbo.EmpleadosPorDepartamento(2) E;
