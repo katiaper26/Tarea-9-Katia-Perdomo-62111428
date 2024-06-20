@@ -1,0 +1,6 @@
+SELECT 
+    Nombre,
+    Apellido,
+    FechaNacimiento,
+    dbo.CalcularEdad(FechaNacimiento) AS Edad
+FROM Empleados;
