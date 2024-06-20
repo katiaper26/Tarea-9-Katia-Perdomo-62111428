@@ -1,0 +1,19 @@
+CREATE FUNCTION CalcularEdad
+(
+    @FechaNacimiento DATE
+)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @Edad INT;
+    DECLARE @Hoy DATE = GETDATE();
+    
+    SELECT @Edad = DATEDIFF(YEAR, @FechaNacimiento, @Hoy) -
+                  CASE
+                      WHEN DATEADD(YEAR, DATEDIFF(YEAR, @FechaNacimiento, @Hoy), @FechaNacimiento) > @Hoy THEN 1
+                      ELSE 0
+                  END;
+    
+    RETURN @Edad;
+END;
+GO
