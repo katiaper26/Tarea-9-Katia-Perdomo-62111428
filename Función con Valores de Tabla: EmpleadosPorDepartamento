@@ -1,0 +1,13 @@
+CREATE FUNCTION EmpleadosPorDepartamento
+(
+    @DepartamentoID INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT E.EmpleadoID, E.Nombre, E.Apellido, E.FechaNacimiento
+    FROM Empleados E
+    WHERE E.DepartamentoID = @DepartamentoID
+);
+GO
